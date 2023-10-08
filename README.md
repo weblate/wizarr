@@ -60,7 +60,7 @@ version: "3.5"
 services:
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr
+    image: ghcr.io/wizarrrr/wizarr:v2
     ports:
       - 5690:5690
     volumes:
