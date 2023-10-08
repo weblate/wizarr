@@ -40,41 +40,45 @@
 
 Wizarr is a automatic user invitation system for Plex and Jellyfin. Create a unique link and share it to a user and they will be invited to your Media Server after they complete there signup proccess! They can even be guided to download the clients and read instructions on how to use your media software!
 
-## Wizarr V3 Beta
-If you would like to participate in the beta for version 3, please join our [Discord](https://discord.gg/XXCz7aM3ak) and setup the beta version of Wizarr. You can find the beta repository [here](https://github.com/Wizarrrr/wizarr/tree/v3-alpha).
-
 ## Major Features Include
 
-- Automatic Invitation to your Media Server (Plex, Jellyfin, Emby...)
-- Secured invitation environment
-- Plug and Play SSO Support*
-- Multi-tiered Invitations
-- Duration for membership
-- Guide user on how to download Plex client
-- Requests Integration: Guide users on how to request Movies (Jellyseerr, Overseerr & Ombi)
-- Discord Server Integration: Invite users to your Discord Server
-- Customizable: Add any Custom HTML 
-
-
+-   Automatic Invitation to your Media Server (Plex, Jellyfin, Emby...)
+-   Secured invitation environment
+-   Plug and Play SSO Support\*
+-   Multi-tiered Invitations
+-   Duration for membership
+-   Guide user on how to download Plex client
+-   Requests Integration: Guide users on how to request Movies (Jellyseerr, Overseerr & Ombi)
+-   Discord Server Integration: Invite users to your Discord Server
+-   Customizable: Add any Custom HTML
 
 ## Getting Started
 
-Check out our documentation for instructions on how to install and run Wizarr!<br>
-https://docs.wizarr.dev/getting-started/installation
-
+```
+---
+version: "3.5"
+services:
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr
+    ports:
+      - 5690:5690
+    volumes:
+      - ./data:/data/database // Configure volume
+    environment:
+      - APP_URL=https://wizarr.example.com
+      - MIN_PASSWORD_LENGTH=8 // Optional
+      - MAX_PASSWORD_LENGTH=20 // Optional
+      - MIN_PASSWORD_UPPERCASE=0 // Optional
+      - MIN_PASSWORD_NUMBERS=0 // Optional
+      - MIN_PASSWORD_SPECIAL=0 // Optional
+      - DISABLE_BUILTIN_AUTH=false // Optional
+      - TZ=Europe/London
+```
 
 ## Default Login
 
 There is no default login, if your browser has not automatically redirected you to `/settings` then please do so manually by visiting `http://your-wizarr.local/settings` and proceed with account creation.
-
-
-
-## Translations
-
-We use Weblate to translate Wizarr, help us out by clicking [here](https://hosted.weblate.org/engage/wizarr/)
-
-<a href="https://hosted.weblate.org/engage/wizarr/">
-<img src="https://hosted.weblate.org/widgets/wizarr/-/app/multi-auto.svg" alt="Übersetzungsstatus" />
 
 ## Thank you
 
